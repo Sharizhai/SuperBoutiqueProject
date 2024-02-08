@@ -8,9 +8,12 @@ import Product from './routing/ProductList';
 import Cart from './routing/CartPage';
 import Profile from './routing/ProfilPage';
 import Register from './routing/RegisterPage';
-
+import { useState } from 'react';
 
 const App = () => {
+
+  const [panier, setPanier] = useState([])
+
   return (
     <>
 
@@ -20,8 +23,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/product" element={<Product setPanier={setPanier}/>} />
+        <Route path="/cart" element={<Cart panier={panier} />} />
         <Route path="/profilPage" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Register/>} />
