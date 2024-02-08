@@ -1,4 +1,4 @@
-import PropTypes from "propTypes";
+import PropTypes from 'prop-types';
 
 const Button = ({onClick, label, type, borderRadius, borderColor, width, height, backgroundColor, color, fontSize, fontFamily, margin, padding}) => {
     return(
@@ -19,7 +19,7 @@ const Button = ({onClick, label, type, borderRadius, borderColor, width, height,
     );
 };
 
-Button.PropTypes = {
+Button.propTypes = {
     onClick: PropTypes.func,
     label: PropTypes.string.isRequired,
     type: PropTypes.oneOf(["button", "submit", "reset"])

@@ -16,16 +16,19 @@ const Navbar = () => {
             <Link to="/product">Produits</Link>
           </li>
           <li>
-            <Link to="/cart">Panier</Link>
-          </li>
-          <li>
-            <Link to="/profilPage">Votre Profil</Link>
+            <Link to="/profilPage">Mon compte</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link to="/register">Créer un compte</Link>
+          </li>
+          <li>
+            <Link to="/login">Se connecter</Link>
+          </li>
+          <li>
+            <Link to="/cart">Panier</Link>
           </li>
         </ul>
       </nav>
