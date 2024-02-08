@@ -1,4 +1,4 @@
-import PropTypes from "propTypes";
+import PropTypes from "prop-types";
 
 const Dropdown = ({title, options, onChange, value}) => {
     const handleChange = (e) => {
@@ -11,8 +11,8 @@ const Dropdown = ({title, options, onChange, value}) => {
         <>
             <div>
                 {<label>{title}</label>}
-                <select onChange={onChange} value={value}>
-                    {options.map((options, index) => (
+                <select onChange={handleChange} value={value}>
+                    {options.map((option, index) => (
                         <option key={index} value={option.value}>
                             {option.label}
                         </option>
