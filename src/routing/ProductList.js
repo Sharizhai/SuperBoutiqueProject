@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"; 
+import { Link } from 'react-router-dom';
 import generateProducts from "../components/ProductCard";
 import '../css/app.css';
 
-const Product = ({ setPanier }) => {
+const Product = ({ setPanier, setDetail }) => {
     const [produits, setProduits] = useState([]);
     
     useEffect(() => {
@@ -10,6 +11,7 @@ const Product = ({ setPanier }) => {
             try {
                 const newProducts = await generateProducts(); 
                 setProduits(newProducts);
+                console.log(newProducts)
             } catch (error) {
                 console.error("Erreur lors de la récupération des produits:", error);
             }
@@ -22,18 +24,25 @@ const Product = ({ setPanier }) => {
         setPanier(prevPanier => [...prevPanier, produit]);
     };
 
+    const afficherDetail = (produit) => {
+        setDetail(produit);
+    }
+
     return (
         <>
             <div id='product-list'>
                 {produits.map((produit, index) => (
                     <div key={index} className="product-item" style={{ marginLeft: '20px', maxWidth: '250px' }}>
                         <a>
-                            <p>IMAGE ICI</p>
                             <div className="product-desc">
                                 <h3>{produit.name}</h3>
                                 <p>{produit.price}€</p>
-                                <button>Detail</button>
-                                <button onClick={() => ajouterPanier(produit)}>Ajouter au panier</button>
+                                <div style={{display:"flex"}}>
+                                    <Link to="/detail">
+                                        <button className="btn" onClick={() => afficherDetail(produit)}>Detail</button>
+                                    </Link>
+                                    <button className="btn" onClick={() => ajouterPanier(produit)}>Ajouter au panier</button>
+                                </div>
                             </div>
                         </a>
                     </div>

@@ -1,35 +1,68 @@
 div nav ul {
-    display: flex; 
-    list-style-type: none; 
+    display: flex;
+    list-style-type: none;
     justify-content: space-around;
     background-color: rgb(220, 242, 245);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+    padding: 10px; /* Ajoute un peu de rembourrage */
 }
-  
+
 div nav ul li:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
+
 
 nav a {
     text-decoration: none;
     color: black;
+    display: inline-block; /* Affiche les liens en tant que bloc */
+    padding: 10px 20px; /* Ajoute de l'espacement autour du texte */
+    border-radius: 5px; /* Arrondit les coins */
+    transition: background-color 0.3s ease; /* Ajoute une transition fluide */
 }
 
-.nav {
-    position: absolute;
-    top: 50%;
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Change la couleur de fond au survol */
 }
 
-#product-list {
+.product-list {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    border: 4px solid black;
     flex-wrap: wrap;
 }
 
 .product-item {
-    margin-left: 20px;
-    max-width: 250px;
-    
+    width: 250px; /* Définir une largeur fixe pour chaque produit */
+    margin: 20px; /* Ajouter une marge pour l'espacement */
+    padding: 20px; /* Ajouter un remplissage pour l'espace intérieur */
+    background-color: #fff; /* Couleur de fond blanc */
+    border: 1px solid #000; /* Bordure noire */
+    text-align: center; /* Centre le texte à l'intérieur de l'élément */
+
+}
+
+/* Alterner les couleurs de fond pour chaque élément */
+.product-item:nth-child(even) {
+    background-color: #f0f0f0; /* Couleur de fond un peu plus foncée pour les éléments pairs */
+}
+
+.product-item:nth-child(odd) {
+    background-color: #fff; /* Couleur de fond blanche pour les éléments impairs */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Légèrement plus foncé au survol */
+    cursor: pointer;
 }
