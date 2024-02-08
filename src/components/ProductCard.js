@@ -1,118 +1,13 @@
-import { faker } from '@faker-js/faker/locale/fr';
+import wretch from 'wretch';
 
-const ProductCard = () => {
-
-  return (
-    <div >
-      <div className="product-row"
-      style={{ 
-        display: 'flex', 
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        border: '4px solid black'
-      }}>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-        <div className="product-item" 
-        style={{ 
-          marginLeft: '20px',
-          maxWidth: '250px',
-        }}>
-          <a>
-            <p>IMAGE ICI</p>
-            <div className="product-desc">
-              <h3>{faker.commerce.productName()} </h3>
-              <p>{faker.commerce.price({min: 1, max: 100, symbol: '€', dec:2 })} </p>
-              <p>{faker.commerce.productDescription()} </p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+const generateProducts = async () => {
+  try {
+    const response = await wretch("https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/product").get().json();
+    return response; 
+  } catch (error) {
+    console.error("Erreur lors de la récupération des produits:", error);
+    return []; 
+  }
 };
 
-export default ProductCard;
+export default generateProducts;
