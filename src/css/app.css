@@ -22,3 +22,9 @@ div nav ul {
     position: absolute;
     top:50%
   }
+
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: auto;
+  }
