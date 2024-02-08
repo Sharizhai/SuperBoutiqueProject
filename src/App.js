@@ -4,7 +4,9 @@ import '../src/css/app.css';
 
 const App = () => {
   return (
-    <Navbar></Navbar>
+    <>
+      <Navbar />
+    </>
   )
 }
 
