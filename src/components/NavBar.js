@@ -1,20 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Contact from '../routing/ContactPage';
-import Home from '../routing/HomePage';
-import Product from '../routing/ProductList';
-import Cart from '../routing/CartPage';
-import Profile from '../routing/ProfilPage';
-import Register from '../routing/RegisterPage';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   return (
-    <div>
+    <div id="nav">
       <nav>
         <ul>
-          <li>
-            <Link to="/home">Accueil</Link>
-          </li>
+        <li>
+            <Link to="/home">
+                <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/7944186-boutique-logo-design-vecteur-modele-vectoriel.jpg" alt="Logo" style={{maxWidth : "5%", height : "auto"}} />
+            </Link>
+        </li>
           <li>
             <Link to="/product">Produits</Link>
           </li>
@@ -36,21 +33,6 @@ const Navbar = () => {
   );
 };
 
+export default Navbar
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/profilPage" element={<Profile />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/register" element={<Register/>} />
-      </Routes>
-      <Navbar />
-    </Router>
-  );
-};
 
-export default App;

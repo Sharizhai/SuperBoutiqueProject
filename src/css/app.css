@@ -1,7 +1,10 @@
+
+
 div nav ul {
     display: flex; 
     list-style-type: none; 
     justify-content: space-around;
+    background-color: rgb(220, 242, 245);
   }
   
   
@@ -12,4 +15,10 @@ div nav ul {
   nav a {
     text-decoration: none;
     color: black;
+  }
+
+  .nav{
+
+    position: absolute;
+    top:50%
   }
