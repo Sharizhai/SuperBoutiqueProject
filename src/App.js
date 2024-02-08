@@ -9,9 +9,12 @@ import Cart from './routing/CartPage';
 import Profile from './routing/ProfilPage';
 import Register from './routing/RegisterPage';
 
+
 const App = () => {
   return (
     <>
+
+   
     
     <Router>
       <Navbar />
