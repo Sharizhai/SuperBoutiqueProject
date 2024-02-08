@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from './components/NavBar'
+import '../src/css/app.css';
 
 const App = () => {
   return (
-    <h1 style={{textAlign: "center"}}>SuperBoutique</h1>
+    <Navbar></Navbar>
   )
 }
 
