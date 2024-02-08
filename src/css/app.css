@@ -1,0 +1,15 @@
+div nav ul {
+    display: flex; 
+    list-style-type: none; 
+    justify-content: space-around;
+  }
+  
+  
+  div nav ul li:last-child {
+    margin-right: 0; 
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+  }
