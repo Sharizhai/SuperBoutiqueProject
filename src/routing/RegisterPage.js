@@ -28,7 +28,6 @@ const Register = () => {
             }
 
             try {
-
                 await wretch().post(user, "https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/signup").error(404, (error)=>{console.log(error)});
                 reset();
             }
