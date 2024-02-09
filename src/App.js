@@ -4,11 +4,11 @@ import Navbar from './components/NavBar';
 import '../src/css/app.css';
 import Contact from './routing/ContactPage';
 import Home from './routing/HomePage';
-import Product from './routing/ProductList';
+import Product from './routing/ProductListPage';
 import Cart from './routing/CartPage';
 import Profile from './routing/ProfilPage';
 import Register from './routing/RegisterPage';
-import Detail from './routing/ProductDetail'; 
+import Detail from './routing/ProductDetailPage'; 
 import LoginPage from './routing/LoginPage';
 
 const App = () => {

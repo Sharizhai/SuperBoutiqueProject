@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import wretch from 'wretch';
+import Button from "../components/Button";
+import { Link } from 'react-router-dom';
 
 const Profile = ({ user, setUser }) => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -28,30 +30,42 @@ const Profile = ({ user, setUser }) => {
             {
                 currentUser && (
                     <>
-                        <div className="mobile-size" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }} >
+                        <div style={{ display: "flex", flexDirection: "Column", justifyContent: "center" }} >
                             <h1 style={{ textAlign: "center", color: "#1A5359" }}>Mes informations</h1>
 
-                            <div style={{ display: "flex", flexDirection: "raw", alignItems: "center" }}>
-                                <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", gap: "15px" }}>
+                            <div className="mobile-size" style={{ display: "flex", flexDirection: "raw", justifyContent: "center" }}>
+                                <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center", width: "300px" }}>
                                     <h3 style={{ textAlign: "center", marginBottom: "15px", color: "#1A5359" }}>Informations personnelles</h3>
                                     <p>{currentUser.data.email}</p>
-                                    <p>{currentUser.data.nom}</p>
-                                    <p>{currentUser.data.prenom}</p>
+                                    <p>{currentUser.data.nom} {currentUser.data.prenom}</p>
                                 </div>
 
-                                <div style={{ marginTop: "50px", display: "flex", flexDirection: "column", gap: "15px" }}>
+                                <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center", width: "300px" }}>
                                     <h3 style={{ textAlign: "center", marginBottom: "15px", color: "#1A5359" }}>Adresse de livraison</h3>
                                     {currentUser.data.address && (
                                         <>
-                                            <p>{currentUser.data.address.numeroRue}</p>
-                                            <p>{currentUser.data.address.nomRue}</p>
-                                            <p>{currentUser.data.address.postalCode}</p>
-                                            <p>{currentUser.data.address.ville}</p>
-                                            <button className='btn' onClick={() => setUser({})}></button>
+                                            <p>{currentUser.data.address.numeroRue} {currentUser.data.address.nomRue}</p>
+                                            <p>{currentUser.data.address.postalCode} {currentUser.data.address.ville}</p>
                                         </>
                                     )}
                                 </div>
+
                             </div>
+
+                            <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "70px"}}>
+                                <h3 style={{ textAlign: "center", marginBottom: "25px", color: "#1A5359" }}>Une question ? Besoin d'aide ? </h3>
+                                
+                                <Link to="/contact">
+                                <Button label="Contactez-nous"
+                            width="150px"
+                            height="40px"
+                            color="antiquewhite"
+                            backgroundColor="#052E33"
+                            borderRadius="15px"
+                            fontSize="1em" />
+                                </Link>
+                            </div>
+
                         </div>
                     </>
                 )}
@@ -59,6 +73,5 @@ const Profile = ({ user, setUser }) => {
         </>
     );
 };
-
 
 export default Profile;

@@ -8,7 +8,7 @@ const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data);
 
         if (data.email === data.mailRepeat) {
@@ -27,8 +27,17 @@ const Register = () => {
                 password: data.password,
             }
 
-            wretch().post(user, "https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/signup");
-            reset();
+            try {
+
+                await wretch().post(user, "https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/signup").error(404, (error)=>{console.log(error)});
+                reset();
+            }
+
+            catch(error){
+                console.error(
+                    "Not Registered",error
+                )
+            }
         }
 
         else (
