@@ -19,7 +19,7 @@ const App = () => {
   return (
     <>
       <Router>
-        <Navbar panier={panier} user={user}/> 
+        <Navbar panier={panier} user={user} setUser={setUser} />
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/product" element={<Product setPanier={setPanier} setDetail={setDetail} user={user} />} />

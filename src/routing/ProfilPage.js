@@ -67,6 +67,7 @@ const Profile = ({ user, setUser }) => {
                             </div>
 
                         </div>
+                        <button className='btn' onClick={() => setUser({})}>Se déconnecter</button>
                     </>
                 )}
               
