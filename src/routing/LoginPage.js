@@ -25,15 +25,17 @@ const LoginPage = ({ setUser }) => {
 
   return (
     <>
-      <label>
-        Email:
-        <input type="text" onChange={(e) => setEmail(e.target.value)}/>
-      </label>
-      <label>
-        Mot de passe:
-        <input type="password" onChange={(e) => setPassword(e.target.value)}/>
-      </label>
-      <button onClick={() => connect(email, password)}>Se connecter</button>
+    <div style={{display:"flex"}}>
+        <label>
+          Email:
+          <input type="text" onChange={(e) => setEmail(e.target.value)}/>
+        </label>
+        <label>
+          Mot de passe:
+          <input type="password" onChange={(e) => setPassword(e.target.value)}/>
+        </label>
+    </div>
+      <button className="btn" onClick={() => connect(email, password)}>Se connecter</button>
     </>
   );
 };
