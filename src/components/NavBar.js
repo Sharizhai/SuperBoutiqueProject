@@ -22,9 +22,6 @@ const Navbar = ({panier, user}) => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/register">Créer un compte</Link>
-          </li>
-          <li>
             <Link to="/login">Se connecter</Link>
           </li>
           <li>
