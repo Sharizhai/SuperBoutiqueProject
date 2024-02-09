@@ -72,3 +72,8 @@ nav a:hover {
     font-size: 0.8em;
     margin-top: auto;
 }
+@media screen and (max-width: 600px) {
+    .mobile-size {
+        flex-direction: column;
+    }
+}
