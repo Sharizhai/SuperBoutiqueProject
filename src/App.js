@@ -14,7 +14,7 @@ import LoginPage from './routing/LoginPage';
 const App = () => {
   const [panier, setPanier] = useState([]);
   const [detail, setDetail] = useState([]);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   return (
     <>
