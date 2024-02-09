@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Navbar = ({panier}) => {
+const Navbar = ({panier, user}) => {
   console.log(panier)
   return (
     <div id="nav">
