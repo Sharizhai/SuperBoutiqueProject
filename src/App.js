@@ -19,12 +19,12 @@ const App = () => {
   return (
     <>
       <Router>
-        <Navbar panier={panier} user={user}/> 
+        <Navbar panier={panier} user={user} setUser={setUser} />
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/product" element={<Product setPanier={setPanier} setDetail={setDetail} user={user} />} />
           <Route path="/cart" element={<Cart panier={panier} />} />
-          <Route path="/profilPage" element={<Profile user={user} />} />
+          <Route path="/profilPage" element={<Profile user={user} setUser={setUser} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LoginPage setUser={setUser}/>} />

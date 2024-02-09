@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ panier, user }) => {
+const Navbar = ({ panier, user, setUser }) => {
+
   return (
     <div id="nav">
       <nav>
@@ -32,6 +33,11 @@ const Navbar = ({ panier, user }) => {
               Panier {panier && panier.length > 0 && <span>({panier.length})</span>}
             </Link>
           </li>
+          {Object.keys(user).length > 0 && (
+          <li>
+            <button className='btn' onClick={() => setUser({})}>Se déconnecter</button>
+          </li>
+          )}
         </ul>
       </nav>
     </div>

@@ -2,9 +2,6 @@ import Button from "../components/Button";
 
 const Contact = () => {
 
-    const deconnect = () => {
-
-    };
 
     return (
         <>
