@@ -1,7 +1,8 @@
 import Button from "../components/Button";
 
 const Contact = () => {
-    
+
+
     return (
         <>
             <div style={{ display: "flex", flexDirection: "Column", justifyContent: "center" }}>

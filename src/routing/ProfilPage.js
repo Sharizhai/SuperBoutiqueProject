@@ -3,7 +3,7 @@ import wretch from 'wretch';
 import Button from "../components/Button";
 import { Link } from 'react-router-dom';
 
-const Profile = ({ user }) => {
+const Profile = ({ user, setUser }) => {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
@@ -64,8 +64,10 @@ const Profile = ({ user }) => {
                             </div>
 
                         </div>
+                        <button className='btn' onClick={() => setUser({})}>Se déconnecter</button>
                     </>
                 )}
+              
         </>
     );
 };

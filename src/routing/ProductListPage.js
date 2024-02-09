@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import generateProducts from "../components/ProductCard";
 import '../css/app.css';
 import Button from "../components/Button";
+import SideBar from "../components/SideBar";
 
 const Product = ({ setPanier, setDetail, user }) => {
     const [produits, setProduits] = useState([]);
@@ -36,6 +37,7 @@ const Product = ({ setPanier, setDetail, user }) => {
 
     return (
         <>
+            <SideBar />
             <div id='product-list'>
                 {produits.map((produit, index) => (
                     <div key={index} className="product-item" style={{ marginLeft: '20px', maxWidth: '250px' }}>
