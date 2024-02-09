@@ -26,7 +26,7 @@ const Product = ({ setPanier, setDetail, user }) => {
             setPanier(prevPanier => [...prevPanier, produit]);
         }
         else {
-            alert("Vous devez être connecter pour faire cette action")
+            alert("Vous devez être connecté pour faire cette action")
         }
     };
 
@@ -42,7 +42,7 @@ const Product = ({ setPanier, setDetail, user }) => {
                         <a>
                             <div className="product-desc" style={{display: "flex", flexDirection: "column"}}>
                                 <h3 style={{ textAlign: "center", marginBottom: "5px", color: "#1A5359" }}>{produit.name}</h3>
-                                <p style={{ color: "antiquewhite" }}>{produit.price}€</p>
+                                <p>{produit.price}€</p>
                                 <div style={{ display: "flex", flexDirection: "column", marginTop: "20px"}}>
                                     <Link to="/detail">
                                         <Button label="Plus de détails"

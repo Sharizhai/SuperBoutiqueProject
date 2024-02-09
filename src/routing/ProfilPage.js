@@ -14,10 +14,9 @@ const Profile = ({ user }) => {
                     .get()
                     .json();
                 console.log(response);
-                setCurrentUser(response);
+                setCurrentUser(response.data);
             } catch (error) {
                 console.error('Erreur lors de la récupération des produits:', error);
-                setCurrentUser(null);
             }
         };
 
@@ -26,7 +25,6 @@ const Profile = ({ user }) => {
 
     return (
         <>
-
             {
                 currentUser && (
                     <>
@@ -36,20 +34,19 @@ const Profile = ({ user }) => {
                             <div className="mobile-size" style={{ display: "flex", flexDirection: "raw", justifyContent: "center" }}>
                                 <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center", width: "300px" }}>
                                     <h3 style={{ textAlign: "center", marginBottom: "15px", color: "#1A5359" }}>Informations personnelles</h3>
-                                    <p>{currentUser.data.email}</p>
-                                    <p>{currentUser.data.nom} {currentUser.data.prenom}</p>
+                                    <p>{currentUser.email}</p>
+                                    <p>{currentUser.nom} {currentUser.prenom}</p>
                                 </div>
 
                                 <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", alignItems: "center", width: "300px" }}>
                                     <h3 style={{ textAlign: "center", marginBottom: "15px", color: "#1A5359" }}>Adresse de livraison</h3>
-                                    {currentUser.data.address && (
+                                    {currentUser.address && (
                                         <>
-                                            <p>{currentUser.data.address.numeroRue} {currentUser.data.address.nomRue}</p>
-                                            <p>{currentUser.data.address.postalCode} {currentUser.data.address.ville}</p>
+                                            <p>{currentUser.address.numeroRue} {currentUser.address.nomRue}</p>
+                                            <p>{currentUser.address.postalCode} {currentUser.address.ville}</p>
                                         </>
                                     )}
                                 </div>
-
                             </div>
 
                             <div style={{display: "flex", flexDirection: "column", alignItems: "center", marginTop: "70px"}}>
