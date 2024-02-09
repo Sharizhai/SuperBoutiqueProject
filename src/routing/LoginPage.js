@@ -32,14 +32,17 @@ const LoginPage = ({ setUser }) => {
           <h3 style={{ textAlign: "center", marginBottom: "15px", color: "#1A5359" }}>Déjà client ?</h3>
           <input type="text" onChange={(e) => setEmail(e.target.value)} placeholder="E-mail" />
           <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Mot de passe" />
-          <Button label="Se connecter"
-            onClick={() => connect(email, password)}
-            width="120px"
-            height="40px"
-            color="antiquewhite"
-            backgroundColor="#052E33"
-            borderRadius="15px"
-            fontSize="1em" />
+
+          <Link to="/profilPage">
+            <Button label="Se connecter"
+              onClick={() => connect(email, password)}
+              width="120px"
+              height="40px"
+              color="antiquewhite"
+              backgroundColor="#052E33"
+              borderRadius="15px"
+              fontSize="1em" />
+          </Link>
         </div>
 
         <div style={{ marginTop: "30px", display: "flex", flexDirection: "column", gap: "15px", alignItems: "center", width: "300px" }}>
