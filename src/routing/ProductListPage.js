@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react"; 
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import generateProducts from "../components/ProductCard";
 import '../css/app.css';
+import Button from "../components/Button";
 
 const Product = ({ setPanier, setDetail, user }) => {
     const [produits, setProduits] = useState([]);
-    
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const newProducts = await generateProducts(); 
+                const newProducts = await generateProducts();
                 setProduits(newProducts);
                 console.log(newProducts)
             } catch (error) {
@@ -18,13 +19,13 @@ const Product = ({ setPanier, setDetail, user }) => {
         };
 
         fetchProducts();
-    }, []); 
+    }, []);
 
-    const ajouterPanier = (produit) => {
-        if(user && Object.keys(user).length > 0){
+    const addToCart = (produit) => {
+        if (user && Object.keys(user).length > 0) {
             setPanier(prevPanier => [...prevPanier, produit]);
         }
-        else{
+        else {
             alert("Vous devez être connecter pour faire cette action")
         }
     };
@@ -39,14 +40,31 @@ const Product = ({ setPanier, setDetail, user }) => {
                 {produits.map((produit, index) => (
                     <div key={index} className="product-item" style={{ marginLeft: '20px', maxWidth: '250px' }}>
                         <a>
-                            <div className="product-desc">
-                                <h3>{produit.name}</h3>
-                                <p>{produit.price}€</p>
-                                <div style={{display:"flex"}}>
+                            <div className="product-desc" style={{display: "flex", flexDirection: "column"}}>
+                                <h3 style={{ textAlign: "center", marginBottom: "5px", color: "#1A5359" }}>{produit.name}</h3>
+                                <p style={{ color: "antiquewhite" }}>{produit.price}€</p>
+                                <div style={{ display: "flex", flexDirection: "column", marginTop: "20px"}}>
                                     <Link to="/detail">
-                                        <button className="btn" onClick={() => afficherDetail(produit)}>Detail</button>
+                                        <Button label="Plus de détails"
+                                            onClick={() => afficherDetail(produit)}
+                                            width="120px"
+                                            height="40px"
+                                            color="antiquewhite"
+                                            backgroundColor="#052E33"
+                                            borderRadius="15px"
+                                            fontSize="1em" />
                                     </Link>
-                                    <button className="btn" onClick={() => ajouterPanier(produit)}>Ajouter au panier</button>
+                                    
+                                    <div style={{marginTop: "15px"}}>
+                                    <Button label="Ajouter au panier"
+                                        onClick={() => addToCart(produit)}
+                                        width="150px"
+                                        height="40px"
+                                        color="antiquewhite"
+                                        backgroundColor="#052E33"
+                                        borderRadius="15px"
+                                        fontSize="1em" />
+                                    </div>
                                 </div>
                             </div>
                         </a>
