@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import generateProducts from "../components/ProductCard";
 import '../css/app.css';
 
-const Product = ({ setPanier, setDetail }) => {
+const Product = ({ setPanier, setDetail, user }) => {
     const [produits, setProduits] = useState([]);
     
     useEffect(() => {
@@ -21,7 +21,12 @@ const Product = ({ setPanier, setDetail }) => {
     }, []); 
 
     const ajouterPanier = (produit) => {
-        setPanier(prevPanier => [...prevPanier, produit]);
+        if(user && Object.keys(user).length > 0){
+            setPanier(prevPanier => [...prevPanier, produit]);
+        }
+        else{
+            alert("Vous devez être connecter pour faire cette action")
+        }
     };
 
     const afficherDetail = (produit) => {

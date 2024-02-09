@@ -19,7 +19,7 @@ const LoginPage = ({ setUser }) => {
         .post(user)
         .json();
       setUser(response)
-      console.log(response)
+      alert("Vous êtes connecté")
     } catch (error) {
       console.error("Erreur lors de la requête :", error);
     }
