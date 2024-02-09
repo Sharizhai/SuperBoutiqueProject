@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 div nav ul {
     display: flex;
     list-style-type: none;
@@ -26,8 +30,10 @@ nav a:hover {
 }
 
 #product-list {
+    margin-left: 12%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .product-item {
@@ -67,13 +73,67 @@ nav a:hover {
     cursor: pointer;
 }
 
-.error-message {
-    color: red;
-    font-size: 0.8em;
-    margin-top: auto;
+/* *************** */
+/* SB pour SIDEBAR */
+/* *************** */
+.sb {
+    margin-left: 1.5%;
+    padding: 0;
+    width: 12%;
+    background-color: #f0f0f0;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-radius: 12px;
+    padding-left: 4px;
+ }
+
+.sb-filtre {
+    padding: 12px 0;
 }
-@media screen and (max-width: 600px) {
-    .mobile-size {
-        flex-direction: column;
-    }
+
+.sb-price-input{
+    border: 1px solid #1d1d1d;
+    height: 32px;
+    padding: 3px 12px;
+    line-height: 24px;
+}
+
+.sb-price-input > input{
+    border: none;
+    outline: 0;
+    padding: 0;
+    padding-top: 24px;
+    width: 60px;
+    background-color: transparent;
+}
+
+.sb-marque-input {
+    border: 1px solid #1d1d1d;
+    height: 32px;
+    padding: 0 16px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.sb-marque-input > select {
+    border: none;
+    outline: 0;
+    padding: 0;
+    background-color: transparent;
+    
+}
+
+.sb-btn-search {
+    margin-top: 32px;
+    padding: 0 12px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
