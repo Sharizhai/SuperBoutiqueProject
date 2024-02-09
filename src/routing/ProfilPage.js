@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import wretch from 'wretch';
 
-const Profile = ({ user }) => {
+const Profile = ({ user, setUser }) => {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
@@ -47,6 +47,7 @@ const Profile = ({ user }) => {
                                             <p>{currentUser.data.address.nomRue}</p>
                                             <p>{currentUser.data.address.postalCode}</p>
                                             <p>{currentUser.data.address.ville}</p>
+                                            <button className='btn' onClick={() => setUser({})}></button>
                                         </>
                                     )}
                                 </div>
@@ -54,28 +55,10 @@ const Profile = ({ user }) => {
                         </div>
                     </>
                 )}
+              
         </>
     );
 };
 
-/* <>
-            {currentUser && (
-                <>
-                    <p>{currentUser.data.nom}</p>
-                    <p>{currentUser.data.prenom}</p>
-                    <p>{currentUser.data.email}</p>
-                    {currentUser.data.address && (
-                        <>
-                            <p>{currentUser.data.address.numeroRue}</p>
-                            <p>{currentUser.data.address.nomRue}</p>
-                            <p>{currentUser.data.address.postalCode}</p>
-                            <p>{currentUser.data.address.ville}</p>
-                        </>
-                    )}
-                </>
-            )}
-        </>
-        );
-};*/
 
 export default Profile;
