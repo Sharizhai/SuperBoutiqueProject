@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import { useForm } from "react-hook-form";
 import Button from "../components/Button";
 import Input from '../components/Input';
@@ -64,7 +64,6 @@ const Register = () => {
                         </div>
 
                         <div style={{ marginTop: "40px" }}>
-                            <Link to="/login">
                                 <Button label="Créer mon compte"
                                     type="submit"
                                     width="150px"
@@ -74,7 +73,6 @@ const Register = () => {
                                     borderRadius="15px"
                                     fontSize="1em"
                                 />
-                            </Link>
                         </div>
                     </div>
                 </form>
