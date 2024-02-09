@@ -22,7 +22,7 @@ const App = () => {
         <Navbar panier={panier} user={user}/> 
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/product" element={<Product setPanier={setPanier} setDetail={setDetail} />} /> 
+          <Route path="/product" element={<Product setPanier={setPanier} setDetail={setDetail} user={user} />} />
           <Route path="/cart" element={<Cart panier={panier} />} />
           <Route path="/profilPage" element={<Profile user={user} />} />
           <Route path="/contact" element={<Contact />} />
