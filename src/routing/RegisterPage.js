@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-import {useForm} from "react-hook-form";
+
+import { useForm } from "react-hook-form";
 import Button from "../components/Button";
 import Input from '../components/Input';
 import wretch from "wretch";
@@ -8,16 +8,16 @@ const Register = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data);
 
-        if(data.email === data.mailRepeat) {
+        if (data.email === data.mailRepeat) {
 
-            let user={
+            let user = {
                 nom: data.lastName,
                 prenom: data.firstName,
                 age: data.age,
-                address:{
+                address: {
                     ville: data.city,
                     postalCode: data.zipCode,
                     numeroRue: data.streetNumber,
@@ -26,12 +26,21 @@ const Register = () => {
                 email: data.email,
                 password: data.password,
             }
-    
-            wretch().post(user, "https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/signup");
-            reset();
+
+            try {
+
+                await wretch().post(user, "https://api-3wa-ecomm-524fde41edfa.herokuapp.com/api/signup").error(404, (error)=>{console.log(error)});
+                reset();
+            }
+
+            catch(error){
+                console.error(
+                    "Not Registered",error
+                )
+            }
         }
 
-        else(
+        else (
             alert("Le second mail est différent du premier. Veuillez vérifier votre saisie !")
         );
     };
@@ -55,8 +64,8 @@ const Register = () => {
                             <Input name="lastName" type="text" placeholder="Nom" register={register} error={errors.lastName} />
                             <Input name="firstName" type="text" placeholder="Prénom" register={register} error={errors.firstName} />
                             <Input name="age" type="number" placeholder="Age" register={register} error={errors.age} />
-                            
-                            <p style={{marginBottom : "0px", marginTop : "12px", color: "#1A5359"}}>Adresse de livraison :</p>
+
+                            <p style={{ marginBottom: "0px", marginTop: "12px", color: "#1A5359" }}>Adresse de livraison :</p>
                             <Input name="streetNumber" type="text" placeholder="Numéro de rue" register={register} error={errors.streetNumber} />
                             <Input name="street" type="text" placeholder="Rue" register={register} error={errors.street} />
                             <Input name="zipCode" type="text" placeholder="Code postal" register={register} error={errors.zipCode} />

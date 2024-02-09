@@ -1,32 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-const Navbar = ({panier}) => {
-  console.log(panier)
+const Navbar = ({ panier, user }) => {
   return (
     <div id="nav">
       <nav>
         <ul>
           <li>
             <Link to="/home">
-                <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/7944186-boutique-logo-design-vecteur-modele-vectoriel.jpg" alt="Logo" style={{maxWidth : "5%", height : "auto"}} />
+              <img src="https://static.vecteezy.com/ti/vecteur-libre/p1/7944186-boutique-logo-design-vecteur-modele-vectoriel.jpg" alt="Logo" style={{ maxWidth: "5%", height: "auto" }} />
             </Link>
           </li>
           <li>
             <Link to="/product">Nos produits</Link>
           </li>
-          <li>
-            <Link to="/profilPage">Mon compte</Link>
-          </li>
+          {Object.keys(user).length > 0 && (
+            <li>
+              <Link to="/profilPage">Mon compte</Link>
+            </li>
+          )}
+          {!user.token && (
+            <li>
+              <Link to="/login">Se connecter</Link>
+            </li>
+          )}
           <li>
             <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/register">Créer un compte</Link>
-          </li>
-          <li>
-            <Link to="/login">Se connecter</Link>
           </li>
           <li>
             <Link to="/cart">
