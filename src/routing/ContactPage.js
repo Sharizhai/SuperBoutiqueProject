@@ -2,6 +2,10 @@ import Button from "../components/Button";
 
 const Contact = () => {
 
+    const deconnect = () => {
+
+    };
+
     return (
         <>
             <div style={{ display: "flex", flexDirection: "Column", justifyContent: "center" }}>
@@ -45,4 +49,4 @@ const Contact = () => {
 
 }
 
-export default Contact
+export default Contact;
